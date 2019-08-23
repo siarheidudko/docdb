@@ -1,0 +1,1331 @@
+{
+    "_id": "5d36fa672292e6e1c11d64fd",
+    "guid": "8e5bac03-443d-4338-9e20-2c6b1332322b",
+    "type": "Документ.Чек",
+    "date": "2019-07-23T15:14:10",
+    "description": "11602018",
+    "isactive": true,
+    "multilines": [
+      {
+        "id": "ПозицииЧека",
+        "lines": [
+          {
+            "requisites": [
+              {
+                "type": "Число",
+                "id": "Key",
+                "name": "Key",
+                "value": 1208305
+              },
+              {
+                "type": "Справочник.Номенклатура",
+                "id": "Номенклатура",
+                "name": "Good_1C_Uid",
+                "value": "7C229C53-EF11-11E2-AF2D-782BCB1FF45D"
+              },
+              {
+                "type": "Число",
+                "id": "SectionNum",
+                "name": "НомерСекции",
+                "value": 1
+              },
+              {
+                "type": "Строка",
+                "id": "Серия",
+                "name": "Серия",
+                "value": "2041118"
+              },
+              {
+                "type": "Дата",
+                "id": "СрокГодности",
+                "name": "СрокГодности",
+                "value": "2023-11-01T00:00:00"
+              },
+              {
+                "type": "Число",
+                "id": "ЦенаБезСкидки",
+                "name": "ЦенаБезСкидки",
+                "value": 5.35
+              },
+              {
+                "type": "Число",
+                "id": "ЦенаСоСкидкой",
+                "name": "ЦенаСоСкидкой",
+                "value": 5.35
+              },
+              {
+                "type": "Число",
+                "id": "ЦелоеКоличество",
+                "name": "ЦелоеКоличество",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "ДробноеКоличество",
+                "name": "ДробноеКоличество",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "ДелимостьНаЧасти",
+                "name": "ДелимостьНаЧасти",
+                "value": 5
+              },
+              {
+                "type": "Число",
+                "id": "ОкругленноеКоличество",
+                "name": "ОкругленноеКоличество",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "СуммаБезСкидки",
+                "name": "СуммаБезСкидки",
+                "value": 5.35
+              },
+              {
+                "type": "Число",
+                "id": "СуммаСоСкидкой",
+                "name": "СуммаСоСкидкой",
+                "value": 5.35
+              },
+              {
+                "type": "Строка",
+                "id": "PositionsUid",
+                "name": "PositionsUid",
+                "value": "D44C1815-65FE-4FF0-A536-9E9E20662964"
+              },
+              {
+                "type": "Строка",
+                "id": "PatientFio",
+                "name": "PatientFio",
+                "value": ""
+              },
+              {
+                "type": "Строка",
+                "id": "MedicationDescription",
+                "name": "MedicationDescription",
+                "value": ""
+              },
+              {
+                "type": "Строка",
+                "id": "SupplyID",
+                "name": "SupplyID",
+                "value": "667733"
+              },
+              {
+                "type": "Число",
+                "id": "SumPaymentCard",
+                "name": "SumPaymentCard",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "SumPaymentCert",
+                "name": "SumPaymentCert",
+                "value": 0
+              },
+              {
+                "type": "Строка",
+                "id": "Premium_Guid",
+                "name": "Premium_Guid",
+                "value": "9be558bf-8a0b-11e6-80da-005056824234"
+              },
+              {
+                "type": "Число",
+                "id": "SumPremium",
+                "name": "SumPremium",
+                "value": 0.0642
+              },
+              {
+                "type": "Число",
+                "id": "PercentPremium",
+                "name": "PercentPremium",
+                "value": 1.2
+              },
+              {
+                "type": "Число",
+                "id": "AlgoritmRoundId",
+                "name": "AlgoritmRoundId",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "PriceFractionalPart",
+                "name": "PriceFractionalPart",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "RecipeType",
+                "name": "RecipeType",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "RetailPayment_value",
+                "name": "RetailPayment_value",
+                "value": 79.97
+              },
+              {
+                "type": "Число",
+                "id": "SourceOfSale",
+                "name": "SourceOfSale",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "requisites": [
+              {
+                "type": "Число",
+                "id": "Key",
+                "name": "Key",
+                "value": 1208304
+              },
+              {
+                "type": "Справочник.Номенклатура",
+                "id": "Номенклатура",
+                "name": "Good_1C_Uid",
+                "value": "8BDBA84B-0FB9-11E8-80FE-005056824234"
+              },
+              {
+                "type": "Число",
+                "id": "SectionNum",
+                "name": "НомерСекции",
+                "value": 1
+              },
+              {
+                "type": "Строка",
+                "id": "Серия",
+                "name": "Серия",
+                "value": "580918"
+              },
+              {
+                "type": "Дата",
+                "id": "СрокГодности",
+                "name": "СрокГодности",
+                "value": "2020-09-01T00:00:00"
+              },
+              {
+                "type": "Число",
+                "id": "ЦенаБезСкидки",
+                "name": "ЦенаБезСкидки",
+                "value": 9.51
+              },
+              {
+                "type": "Число",
+                "id": "ЦенаСоСкидкой",
+                "name": "ЦенаСоСкидкой",
+                "value": 9.51
+              },
+              {
+                "type": "Число",
+                "id": "ЦелоеКоличество",
+                "name": "ЦелоеКоличество",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "ДробноеКоличество",
+                "name": "ДробноеКоличество",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "ДелимостьНаЧасти",
+                "name": "ДелимостьНаЧасти",
+                "value": 3
+              },
+              {
+                "type": "Число",
+                "id": "ОкругленноеКоличество",
+                "name": "ОкругленноеКоличество",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "СуммаБезСкидки",
+                "name": "СуммаБезСкидки",
+                "value": 9.51
+              },
+              {
+                "type": "Число",
+                "id": "СуммаСоСкидкой",
+                "name": "СуммаСоСкидкой",
+                "value": 9.51
+              },
+              {
+                "type": "Строка",
+                "id": "PositionsUid",
+                "name": "PositionsUid",
+                "value": "97E193A6-A682-4BF4-A0B0-11659E25D27B"
+              },
+              {
+                "type": "Строка",
+                "id": "PatientFio",
+                "name": "PatientFio",
+                "value": ""
+              },
+              {
+                "type": "Строка",
+                "id": "MedicationDescription",
+                "name": "MedicationDescription",
+                "value": ""
+              },
+              {
+                "type": "Строка",
+                "id": "SupplyID",
+                "name": "SupplyID",
+                "value": "641998"
+              },
+              {
+                "type": "Число",
+                "id": "SumPaymentCard",
+                "name": "SumPaymentCard",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "SumPaymentCert",
+                "name": "SumPaymentCert",
+                "value": 0
+              },
+              {
+                "type": "Строка",
+                "id": "Premium_Guid",
+                "name": "Premium_Guid",
+                "value": "748e9049-8a0b-11e6-80da-005056824234"
+              },
+              {
+                "type": "Число",
+                "id": "SumPremium",
+                "name": "SumPremium",
+                "value": 0.2282
+              },
+              {
+                "type": "Число",
+                "id": "PercentPremium",
+                "name": "PercentPremium",
+                "value": 2.4
+              },
+              {
+                "type": "Число",
+                "id": "AlgoritmRoundId",
+                "name": "AlgoritmRoundId",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "PriceFractionalPart",
+                "name": "PriceFractionalPart",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "RecipeType",
+                "name": "RecipeType",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "RetailPayment_value",
+                "name": "RetailPayment_value",
+                "value": 79.97
+              },
+              {
+                "type": "Число",
+                "id": "SourceOfSale",
+                "name": "SourceOfSale",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "requisites": [
+              {
+                "type": "Число",
+                "id": "Key",
+                "name": "Key",
+                "value": 1208303
+              },
+              {
+                "type": "Справочник.Номенклатура",
+                "id": "Номенклатура",
+                "name": "Good_1C_Uid",
+                "value": "D019F77C-0DE0-11E6-80D5-005056824234"
+              },
+              {
+                "type": "Число",
+                "id": "SectionNum",
+                "name": "НомерСекции",
+                "value": 1
+              },
+              {
+                "type": "Строка",
+                "id": "Серия",
+                "name": "Серия",
+                "value": "4131018"
+              },
+              {
+                "type": "Дата",
+                "id": "СрокГодности",
+                "name": "СрокГодности",
+                "value": "2020-11-01T00:00:00"
+              },
+              {
+                "type": "Число",
+                "id": "ЦенаБезСкидки",
+                "name": "ЦенаБезСкидки",
+                "value": 9.81
+              },
+              {
+                "type": "Число",
+                "id": "ЦенаСоСкидкой",
+                "name": "ЦенаСоСкидкой",
+                "value": 9.81
+              },
+              {
+                "type": "Число",
+                "id": "ЦелоеКоличество",
+                "name": "ЦелоеКоличество",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "ДробноеКоличество",
+                "name": "ДробноеКоличество",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "ДелимостьНаЧасти",
+                "name": "ДелимостьНаЧасти",
+                "value": 3
+              },
+              {
+                "type": "Число",
+                "id": "ОкругленноеКоличество",
+                "name": "ОкругленноеКоличество",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "СуммаБезСкидки",
+                "name": "СуммаБезСкидки",
+                "value": 9.81
+              },
+              {
+                "type": "Число",
+                "id": "СуммаСоСкидкой",
+                "name": "СуммаСоСкидкой",
+                "value": 9.81
+              },
+              {
+                "type": "Строка",
+                "id": "PositionsUid",
+                "name": "PositionsUid",
+                "value": "96838CFC-EDCF-4ADE-A3BE-561F64C92088"
+              },
+              {
+                "type": "Строка",
+                "id": "PatientFio",
+                "name": "PatientFio",
+                "value": ""
+              },
+              {
+                "type": "Строка",
+                "id": "MedicationDescription",
+                "name": "MedicationDescription",
+                "value": ""
+              },
+              {
+                "type": "Строка",
+                "id": "SupplyID",
+                "name": "SupplyID",
+                "value": "674120"
+              },
+              {
+                "type": "Число",
+                "id": "SumPaymentCard",
+                "name": "SumPaymentCard",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "SumPaymentCert",
+                "name": "SumPaymentCert",
+                "value": 0
+              },
+              {
+                "type": "Строка",
+                "id": "Premium_Guid",
+                "name": "Premium_Guid",
+                "value": "748e9049-8a0b-11e6-80da-005056824234"
+              },
+              {
+                "type": "Число",
+                "id": "SumPremium",
+                "name": "SumPremium",
+                "value": 0.2354
+              },
+              {
+                "type": "Число",
+                "id": "PercentPremium",
+                "name": "PercentPremium",
+                "value": 2.4
+              },
+              {
+                "type": "Число",
+                "id": "AlgoritmRoundId",
+                "name": "AlgoritmRoundId",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "PriceFractionalPart",
+                "name": "PriceFractionalPart",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "RecipeType",
+                "name": "RecipeType",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "RetailPayment_value",
+                "name": "RetailPayment_value",
+                "value": 79.97
+              },
+              {
+                "type": "Число",
+                "id": "SourceOfSale",
+                "name": "SourceOfSale",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "requisites": [
+              {
+                "type": "Число",
+                "id": "Key",
+                "name": "Key",
+                "value": 1208306
+              },
+              {
+                "type": "Справочник.Номенклатура",
+                "id": "Номенклатура",
+                "name": "Good_1C_Uid",
+                "value": "9D8AD454-C845-11E6-80DF-005056824234"
+              },
+              {
+                "type": "Число",
+                "id": "SectionNum",
+                "name": "НомерСекции",
+                "value": 1
+              },
+              {
+                "type": "Строка",
+                "id": "Серия",
+                "name": "Серия",
+                "value": "JD0321"
+              },
+              {
+                "type": "Дата",
+                "id": "СрокГодности",
+                "name": "СрокГодности",
+                "value": "2020-07-01T00:00:00"
+              },
+              {
+                "type": "Число",
+                "id": "ЦенаБезСкидки",
+                "name": "ЦенаБезСкидки",
+                "value": 21.58
+              },
+              {
+                "type": "Число",
+                "id": "ЦенаСоСкидкой",
+                "name": "ЦенаСоСкидкой",
+                "value": 21.58
+              },
+              {
+                "type": "Число",
+                "id": "ЦелоеКоличество",
+                "name": "ЦелоеКоличество",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "ДробноеКоличество",
+                "name": "ДробноеКоличество",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "ДелимостьНаЧасти",
+                "name": "ДелимостьНаЧасти",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "ОкругленноеКоличество",
+                "name": "ОкругленноеКоличество",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "СуммаБезСкидки",
+                "name": "СуммаБезСкидки",
+                "value": 21.58
+              },
+              {
+                "type": "Число",
+                "id": "СуммаСоСкидкой",
+                "name": "СуммаСоСкидкой",
+                "value": 21.58
+              },
+              {
+                "type": "Строка",
+                "id": "PositionsUid",
+                "name": "PositionsUid",
+                "value": "359131C9-2B61-4EDE-B104-9B5E13BF901C"
+              },
+              {
+                "type": "Строка",
+                "id": "PatientFio",
+                "name": "PatientFio",
+                "value": ""
+              },
+              {
+                "type": "Строка",
+                "id": "MedicationDescription",
+                "name": "MedicationDescription",
+                "value": ""
+              },
+              {
+                "type": "Строка",
+                "id": "SupplyID",
+                "name": "SupplyID",
+                "value": "685084"
+              },
+              {
+                "type": "Число",
+                "id": "SumPaymentCard",
+                "name": "SumPaymentCard",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "SumPaymentCert",
+                "name": "SumPaymentCert",
+                "value": 0
+              },
+              {
+                "type": "Строка",
+                "id": "Premium_Guid",
+                "name": "Premium_Guid",
+                "value": "9be558bf-8a0b-11e6-80da-005056824234"
+              },
+              {
+                "type": "Число",
+                "id": "SumPremium",
+                "name": "SumPremium",
+                "value": 0.259
+              },
+              {
+                "type": "Число",
+                "id": "PercentPremium",
+                "name": "PercentPremium",
+                "value": 1.2
+              },
+              {
+                "type": "Число",
+                "id": "AlgoritmRoundId",
+                "name": "AlgoritmRoundId",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "PriceFractionalPart",
+                "name": "PriceFractionalPart",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "RecipeType",
+                "name": "RecipeType",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "RetailPayment_value",
+                "name": "RetailPayment_value",
+                "value": 79.97
+              },
+              {
+                "type": "Число",
+                "id": "SourceOfSale",
+                "name": "SourceOfSale",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "requisites": [
+              {
+                "type": "Число",
+                "id": "Key",
+                "name": "Key",
+                "value": 1208301
+              },
+              {
+                "type": "Справочник.Номенклатура",
+                "id": "Номенклатура",
+                "name": "Good_1C_Uid",
+                "value": "A7ED44F2-B24A-11E7-80F6-005056824234"
+              },
+              {
+                "type": "Число",
+                "id": "SectionNum",
+                "name": "НомерСекции",
+                "value": 1
+              },
+              {
+                "type": "Строка",
+                "id": "Серия",
+                "name": "Серия",
+                "value": "010219"
+              },
+              {
+                "type": "Дата",
+                "id": "СрокГодности",
+                "name": "СрокГодности",
+                "value": "2021-03-01T00:00:00"
+              },
+              {
+                "type": "Число",
+                "id": "ЦенаБезСкидки",
+                "name": "ЦенаБезСкидки",
+                "value": 11.28
+              },
+              {
+                "type": "Число",
+                "id": "ЦенаСоСкидкой",
+                "name": "ЦенаСоСкидкой",
+                "value": 11.28
+              },
+              {
+                "type": "Число",
+                "id": "ЦелоеКоличество",
+                "name": "ЦелоеКоличество",
+                "value": 2
+              },
+              {
+                "type": "Число",
+                "id": "ДробноеКоличество",
+                "name": "ДробноеКоличество",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "ДелимостьНаЧасти",
+                "name": "ДелимостьНаЧасти",
+                "value": 3
+              },
+              {
+                "type": "Число",
+                "id": "ОкругленноеКоличество",
+                "name": "ОкругленноеКоличество",
+                "value": 2
+              },
+              {
+                "type": "Число",
+                "id": "СуммаБезСкидки",
+                "name": "СуммаБезСкидки",
+                "value": 22.56
+              },
+              {
+                "type": "Число",
+                "id": "СуммаСоСкидкой",
+                "name": "СуммаСоСкидкой",
+                "value": 22.56
+              },
+              {
+                "type": "Строка",
+                "id": "PositionsUid",
+                "name": "PositionsUid",
+                "value": "D27A0B66-BC3E-480D-9BCA-56018E6C3CB2"
+              },
+              {
+                "type": "Строка",
+                "id": "PatientFio",
+                "name": "PatientFio",
+                "value": ""
+              },
+              {
+                "type": "Строка",
+                "id": "MedicationDescription",
+                "name": "MedicationDescription",
+                "value": ""
+              },
+              {
+                "type": "Строка",
+                "id": "SupplyID",
+                "name": "SupplyID",
+                "value": "667633"
+              },
+              {
+                "type": "Число",
+                "id": "SumPaymentCard",
+                "name": "SumPaymentCard",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "SumPaymentCert",
+                "name": "SumPaymentCert",
+                "value": 0
+              },
+              {
+                "type": "Строка",
+                "id": "Premium_Guid",
+                "name": "Premium_Guid",
+                "value": "748e9049-8a0b-11e6-80da-005056824234"
+              },
+              {
+                "type": "Число",
+                "id": "SumPremium",
+                "name": "SumPremium",
+                "value": 0.5414
+              },
+              {
+                "type": "Число",
+                "id": "PercentPremium",
+                "name": "PercentPremium",
+                "value": 2.4
+              },
+              {
+                "type": "Число",
+                "id": "AlgoritmRoundId",
+                "name": "AlgoritmRoundId",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "PriceFractionalPart",
+                "name": "PriceFractionalPart",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "RecipeType",
+                "name": "RecipeType",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "RetailPayment_value",
+                "name": "RetailPayment_value",
+                "value": 79.97
+              },
+              {
+                "type": "Число",
+                "id": "SourceOfSale",
+                "name": "SourceOfSale",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "requisites": [
+              {
+                "type": "Число",
+                "id": "Key",
+                "name": "Key",
+                "value": 1208302
+              },
+              {
+                "type": "Справочник.Номенклатура",
+                "id": "Номенклатура",
+                "name": "Good_1C_Uid",
+                "value": "752206B3-E199-11E8-811B-005056824234"
+              },
+              {
+                "type": "Число",
+                "id": "SectionNum",
+                "name": "НомерСекции",
+                "value": 1
+              },
+              {
+                "type": "Строка",
+                "id": "Серия",
+                "name": "Серия",
+                "value": "031118"
+              },
+              {
+                "type": "Дата",
+                "id": "СрокГодности",
+                "name": "СрокГодности",
+                "value": "2020-12-01T00:00:00"
+              },
+              {
+                "type": "Число",
+                "id": "ЦенаБезСкидки",
+                "name": "ЦенаБезСкидки",
+                "value": 11.16
+              },
+              {
+                "type": "Число",
+                "id": "ЦенаСоСкидкой",
+                "name": "ЦенаСоСкидкой",
+                "value": 11.16
+              },
+              {
+                "type": "Число",
+                "id": "ЦелоеКоличество",
+                "name": "ЦелоеКоличество",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "ДробноеКоличество",
+                "name": "ДробноеКоличество",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "ДелимостьНаЧасти",
+                "name": "ДелимостьНаЧасти",
+                "value": 3
+              },
+              {
+                "type": "Число",
+                "id": "ОкругленноеКоличество",
+                "name": "ОкругленноеКоличество",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "СуммаБезСкидки",
+                "name": "СуммаБезСкидки",
+                "value": 11.16
+              },
+              {
+                "type": "Число",
+                "id": "СуммаСоСкидкой",
+                "name": "СуммаСоСкидкой",
+                "value": 11.16
+              },
+              {
+                "type": "Строка",
+                "id": "PositionsUid",
+                "name": "PositionsUid",
+                "value": "8C24AB5C-B9A1-49E0-95C5-8779FA34EEA4"
+              },
+              {
+                "type": "Строка",
+                "id": "PatientFio",
+                "name": "PatientFio",
+                "value": ""
+              },
+              {
+                "type": "Строка",
+                "id": "MedicationDescription",
+                "name": "MedicationDescription",
+                "value": ""
+              },
+              {
+                "type": "Строка",
+                "id": "SupplyID",
+                "name": "SupplyID",
+                "value": "681360"
+              },
+              {
+                "type": "Число",
+                "id": "SumPaymentCard",
+                "name": "SumPaymentCard",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "SumPaymentCert",
+                "name": "SumPaymentCert",
+                "value": 0
+              },
+              {
+                "type": "Строка",
+                "id": "Premium_Guid",
+                "name": "Premium_Guid",
+                "value": "748e9049-8a0b-11e6-80da-005056824234"
+              },
+              {
+                "type": "Число",
+                "id": "SumPremium",
+                "name": "SumPremium",
+                "value": 0.2678
+              },
+              {
+                "type": "Число",
+                "id": "PercentPremium",
+                "name": "PercentPremium",
+                "value": 2.4
+              },
+              {
+                "type": "Число",
+                "id": "AlgoritmRoundId",
+                "name": "AlgoritmRoundId",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "PriceFractionalPart",
+                "name": "PriceFractionalPart",
+                "value": 0
+              },
+              {
+                "type": "Число",
+                "id": "RecipeType",
+                "name": "RecipeType",
+                "value": 1
+              },
+              {
+                "type": "Число",
+                "id": "RetailPayment_value",
+                "name": "RetailPayment_value",
+                "value": 79.97
+              },
+              {
+                "type": "Число",
+                "id": "SourceOfSale",
+                "name": "SourceOfSale",
+                "value": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Оплаты",
+        "lines": [
+          {
+            "requisites": [
+              {
+                "type": "Строка",
+                "id": "KeyPayment",
+                "name": "KeyPayment",
+                "value": "1208301_4"
+              },
+              {
+                "type": "Число",
+                "id": "TypeRetailPayment_ID",
+                "name": "TypeRetailPayment_ID",
+                "value": 4
+              },
+              {
+                "type": "Строка",
+                "id": "PositionCheck_ID",
+                "name": "PositionCheck_ID",
+                "value": "1208301"
+              },
+              {
+                "type": "Число",
+                "id": "RetailPayment_value",
+                "name": "RetailPayment_value",
+                "value": 22.56
+              },
+              {
+                "type": "Строка",
+                "id": "OtherInformation",
+                "name": "OtherInformation",
+                "value": "101143603"
+              },
+              {
+                "type": "Строка",
+                "id": "TypeRetailPayment_name",
+                "name": "TypeRetailPayment_name",
+                "value": "SumInsurance"
+              }
+            ]
+          },
+          {
+            "requisites": [
+              {
+                "type": "Строка",
+                "id": "KeyPayment",
+                "name": "KeyPayment",
+                "value": "1208302_4"
+              },
+              {
+                "type": "Число",
+                "id": "TypeRetailPayment_ID",
+                "name": "TypeRetailPayment_ID",
+                "value": 4
+              },
+              {
+                "type": "Строка",
+                "id": "PositionCheck_ID",
+                "name": "PositionCheck_ID",
+                "value": "1208302"
+              },
+              {
+                "type": "Число",
+                "id": "RetailPayment_value",
+                "name": "RetailPayment_value",
+                "value": 11.16
+              },
+              {
+                "type": "Строка",
+                "id": "OtherInformation",
+                "name": "OtherInformation",
+                "value": "101143603"
+              },
+              {
+                "type": "Строка",
+                "id": "TypeRetailPayment_name",
+                "name": "TypeRetailPayment_name",
+                "value": "SumInsurance"
+              }
+            ]
+          },
+          {
+            "requisites": [
+              {
+                "type": "Строка",
+                "id": "KeyPayment",
+                "name": "KeyPayment",
+                "value": "1208303_4"
+              },
+              {
+                "type": "Число",
+                "id": "TypeRetailPayment_ID",
+                "name": "TypeRetailPayment_ID",
+                "value": 4
+              },
+              {
+                "type": "Строка",
+                "id": "PositionCheck_ID",
+                "name": "PositionCheck_ID",
+                "value": "1208303"
+              },
+              {
+                "type": "Число",
+                "id": "RetailPayment_value",
+                "name": "RetailPayment_value",
+                "value": 9.81
+              },
+              {
+                "type": "Строка",
+                "id": "OtherInformation",
+                "name": "OtherInformation",
+                "value": "101143603"
+              },
+              {
+                "type": "Строка",
+                "id": "TypeRetailPayment_name",
+                "name": "TypeRetailPayment_name",
+                "value": "SumInsurance"
+              }
+            ]
+          },
+          {
+            "requisites": [
+              {
+                "type": "Строка",
+                "id": "KeyPayment",
+                "name": "KeyPayment",
+                "value": "1208304_4"
+              },
+              {
+                "type": "Число",
+                "id": "TypeRetailPayment_ID",
+                "name": "TypeRetailPayment_ID",
+                "value": 4
+              },
+              {
+                "type": "Строка",
+                "id": "PositionCheck_ID",
+                "name": "PositionCheck_ID",
+                "value": "1208304"
+              },
+              {
+                "type": "Число",
+                "id": "RetailPayment_value",
+                "name": "RetailPayment_value",
+                "value": 9.51
+              },
+              {
+                "type": "Строка",
+                "id": "OtherInformation",
+                "name": "OtherInformation",
+                "value": "101143603"
+              },
+              {
+                "type": "Строка",
+                "id": "TypeRetailPayment_name",
+                "name": "TypeRetailPayment_name",
+                "value": "SumInsurance"
+              }
+            ]
+          },
+          {
+            "requisites": [
+              {
+                "type": "Строка",
+                "id": "KeyPayment",
+                "name": "KeyPayment",
+                "value": "1208305_4"
+              },
+              {
+                "type": "Число",
+                "id": "TypeRetailPayment_ID",
+                "name": "TypeRetailPayment_ID",
+                "value": 4
+              },
+              {
+                "type": "Строка",
+                "id": "PositionCheck_ID",
+                "name": "PositionCheck_ID",
+                "value": "1208305"
+              },
+              {
+                "type": "Число",
+                "id": "RetailPayment_value",
+                "name": "RetailPayment_value",
+                "value": 5.35
+              },
+              {
+                "type": "Строка",
+                "id": "OtherInformation",
+                "name": "OtherInformation",
+                "value": "101143603"
+              },
+              {
+                "type": "Строка",
+                "id": "TypeRetailPayment_name",
+                "name": "TypeRetailPayment_name",
+                "value": "SumInsurance"
+              }
+            ]
+          },
+          {
+            "requisites": [
+              {
+                "type": "Строка",
+                "id": "KeyPayment",
+                "name": "KeyPayment",
+                "value": "1208306_4"
+              },
+              {
+                "type": "Число",
+                "id": "TypeRetailPayment_ID",
+                "name": "TypeRetailPayment_ID",
+                "value": 4
+              },
+              {
+                "type": "Строка",
+                "id": "PositionCheck_ID",
+                "name": "PositionCheck_ID",
+                "value": "1208306"
+              },
+              {
+                "type": "Число",
+                "id": "RetailPayment_value",
+                "name": "RetailPayment_value",
+                "value": 21.58
+              },
+              {
+                "type": "Строка",
+                "id": "OtherInformation",
+                "name": "OtherInformation",
+                "value": "101143603"
+              },
+              {
+                "type": "Строка",
+                "id": "TypeRetailPayment_name",
+                "name": "TypeRetailPayment_name",
+                "value": "SumInsurance"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "requisites": [
+      {
+        "type": "Число",
+        "id": "TotalAmount",
+        "name": "TotalAmount",
+        "value": 79.97
+      },
+      {
+        "type": "Число",
+        "id": "Accepted",
+        "name": "Accepted",
+        "value": 0
+      },
+      {
+        "type": "Число",
+        "id": "InsuranceSum",
+        "name": "InsuranceSum",
+        "value": 79.97
+      },
+      {
+        "type": "Строка",
+        "id": "ИдентификаторСтраховогоПолиса",
+        "name": "ИдентификаторСтраховогоПолиса",
+        "value": ""
+      },
+      {
+        "type": "Число",
+        "id": "CheckIdInt",
+        "name": "CheckIdInt",
+        "value": 659951
+      },
+      {
+        "type": "Строка",
+        "id": "SellerID",
+        "name": "SellerID",
+        "value": "71"
+      },
+      {
+        "type": "Число",
+        "id": "BuyerDiscount",
+        "name": "BuyerDiscount",
+        "value": 0
+      },
+      {
+        "type": "Булево",
+        "id": "CheckIsReturn",
+        "name": "CheckIsReturn",
+        "value": false
+      },
+      {
+        "type": "Число",
+        "id": "CheckTypePayment",
+        "name": "CheckTypePayment",
+        "value": 2
+      },
+      {
+        "type": "Строка",
+        "id": "WarehouseID",
+        "name": "WarehouseID",
+        "value": "51"
+      },
+      {
+        "type": "Булево",
+        "id": "bSaleByE_Prescription",
+        "name": "bSaleByE_Prescription",
+        "value": false
+      },
+      {
+        "type": "Булево",
+        "id": "LoadIn1C",
+        "name": "LoadIn1C",
+        "value": true
+      }
+    ],
+    "version": "201907231215350740232617000000"
+  }
