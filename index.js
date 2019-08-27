@@ -13,57 +13,72 @@ var PATH = require('path'),
 
 let DataBase = function(config){
 	let self = this;
-	let db = new DATASTORE(config);
-	self = new STREAM.Readable({
-		read(size){},
-		highWaterMark: 64*1024,
-		objectMode: true
-	});
-	db.streams.warn.pipe(self);
-	self.service = {
-		toBackup: db.methods.backup,
-		fromBackup: db.methods.revert,
-		recovery: self.methods.recovery,
-		compact: function(flag = 'index'){
-			switch(flag){
-				case 'index':
-					db.methods.compact('index');
-					break;
-				case 'log':
-					db.methods.compact('log');
-					break;
-				default:
-					return new Promise(function(rs, rj){
-						rj(new Error('Compact required argument index or log!'));
-					});
-					break;
-			}
-		}
-	};
-	self.insertOne = db.methods.insertOne;
-	self.findOne = function(find, fields){
-		return new Promise(function(rs,rj){
-			if(typeof(find) !== 'object'){
-				return rj('In this database version find required type object!');
-			} else if(typeof(find._id) !== 'string'){
-				db.methods.findOneNoIndex(find, fields).then(function(doc){
-					rs(doc);
-				}).catch(rj);
-			} else {
-				db.methods.findOneIndex({_id: find._id}, fields).then(function(doc){
-					let flag = true;
-					for(const key in find){
-						if(find[key] !== doc[key]) { flag = false; break; }
+	return new DATASTORE(config).then(function(db){
+		return new Promise(function(res, rej){
+			self = new STREAM.Readable({
+				read(size){},
+				highWaterMark: 64*1024,
+				objectMode: true
+			});
+			db.streams.warn.pipe(self);
+			self.service = {
+				toBackup: db.methods.backup,
+				fromBackup: db.methods.revert,
+				recovery: db.methods.recovery,
+				compact: function(flag = 'index'){
+					switch(flag){
+						case 'index':
+							return db.methods.compact('index');
+							break;
+						case 'log':
+							return db.methods.compact('log');
+							break;
+						default:
+							return new Promise(function(rs, rj){
+								rj(new Error('Compact required argument index or log!'));
+							});
+							break;
 					}
-					if(flag){
-						rs(doc);
+				}
+			};
+			self.insertOne = db.methods.insertOne;
+			self.removeOne = function(doc){
+				return new Promise(function(rs, rj){
+					if(doc._id){
+						db.methods.insertOne({_id: doc._id}).then(rs).catch(rj);
+					} else{
+						rj(new Error('Function removeOne required _id!'));
+					}
+				});
+			};
+			self.findMany = function(find, fields){
+				return new Promise(function(rs,rj){
+					if(typeof(find) !== 'object'){
+						return rj('In this database version find required type object!');
+					} else if(typeof(find._id) !== 'string'){
+						db.methods.findOneNoIndex(find, fields).then(function(docs){
+							rs(docs);
+						}).catch(rj);
 					} else {
-						rs({});
+						db.methods.findOneIndex({_id: find._id}, fields).then(function(docs){
+							let _docs = [];
+							for(let i = 0; i < docs.length; i++){
+								let flag = true;
+								for(const key in find){
+									if(find[key] !== docs[i][key]) { flag = false; break; }
+								}
+								if(flag){
+									_docs.push(docs[i]);
+								}
+							}
+							return rs(_docs);
+						}).catch(rj);
 					}
-				}).catch(rj);
+				});
 			}
+			res(self);
 		});
-	}
+	});
 };
 
 module.exports = DataBase;

@@ -684,7 +684,7 @@ DataBase.then(function(db){
 			let dt2, dt = Date.now();
 			let str = 'Test function findOne: ';
 			db.methods.findOne({_id: db.methods.uuidv4()}, ["_id", "type", "guid"]).then(function(doc){
-				if(JSON.stringify(doc) === '{}'){
+				if(JSON.stringify(doc) === '[]'){
 					dt2 = Date.now();
 					console.log(COLORS.green(str+'ОК'), (dt2 - dt)+' ms.');
 				} else {
@@ -711,7 +711,7 @@ DataBase.then(function(db){
 					}, 100);
 				});
 			}).then(function(_doc){
-				if((doc._id === _doc._id) && (doc.guid === _doc.guid) && (doc.test === _doc.test) && (typeof(_doc.text) === 'undefined')){
+				if((doc._id === _doc[0]._id) && (doc.guid === _doc[0].guid) && (doc.test === _doc[0].test) && (typeof(_doc[0].text) === 'undefined')){
 					console.log(COLORS.green(str+'ОК'), (dt2 - dt)+' ms.');
 				} else {
 					console.log(COLORS.red(str+'ERR'));
@@ -729,7 +729,7 @@ DataBase.then(function(db){
 			let dt2, dt = Date.now();
 			let str = 'Test function findOneNoIndex: ';
 			db.methods.findOneNoIndex({_id: '8b1bc66b-7ef3-47f0-be0a-6320e1f5f40f777', text: 'test'}, ['_id', 'test']).then(function(doc){
-				if((doc._id === '8b1bc66b-7ef3-47f0-be0a-6320e1f5f40f777') && (doc.test === 'YUB8tgn*&B&n(&bt6b7n9b679nb67b&bn7Tb')){
+				if((doc[0]._id === '8b1bc66b-7ef3-47f0-be0a-6320e1f5f40f777') && (doc[0].test === 'YUB8tgn*&B&n(&bt6b7n9b679nb67b&bn7Tb')){
 					dt2 = Date.now();
 					console.log(COLORS.green(str+'ОК'), (dt2 - dt)+' ms.');
 				} else {
@@ -748,7 +748,7 @@ DataBase.then(function(db){
 			let dt2, dt = Date.now();
 			let str = 'Test function findOneIndex: ';
 			db.methods.findOneIndex({_id: '8b1bc66b-7ef3-47f0-be0a-6320e1f5f40f777'}, ['_id', 'test']).then(function(doc){
-				if((doc._id === '8b1bc66b-7ef3-47f0-be0a-6320e1f5f40f777') && (doc.test === 'YUB8tgn*&B&n(&bt6b7n9b679nb67b&bn7Tb')){
+				if((doc[0]._id === '8b1bc66b-7ef3-47f0-be0a-6320e1f5f40f777') && (doc[0].test === 'YUB8tgn*&B&n(&bt6b7n9b679nb67b&bn7Tb')){
 					dt2 = Date.now();
 					console.log(COLORS.green(str+'ОК'), (dt2 - dt)+' ms.');
 				} else {

@@ -523,7 +523,9 @@ let DataStore = function(config){
 				return;
 			});
 			scanParser.on('error', function(err){ 																									//ручная обработка потока трансформации строка->объект (pipe не подходит, т.к. при ошибке в любом из потоков трубопровод развалится)
-				self.streams.warn.push({emitter: 'db.methods.createReadStream', err: err});															//игнорирую ошибки, отправляя их в поток уведомлений
+				if(err.errno !== -5){	//ошибку "недопустимый конец файла" игнорирую, т.к. поток записи "по-умолчанию" не закрыт
+					self.streams.warn.push({emitter: 'db.methods.createReadStream', err: err});															//игнорирую ошибки, отправляя их в поток уведомлений
+				}
 			});
 			rs(scanParser);
 		});
@@ -552,8 +554,13 @@ let DataStore = function(config){
 						rstream.on('data', function(data){
 							if(typeof(data) === 'object')
 								self.streams.transform['data.store'].write(data);							//пишу данные из потока чтения в поток записи файлов данных СУБД (первичного ключ и лог-файл)
-						}).on('end', function(){
-							rs1();
+						}).on('finish', function(){
+							self.streams.write['data.store'].on('finish', function(){
+								self.methods.removeAll().then(function(){
+									return self.methods.createWriteStream();
+								}).then(rs1).catch(rj1);
+							});
+							self.streams.transform['data.store'].end();
 						});
 					}).catch(rj1);
 				});
@@ -597,17 +604,47 @@ let DataStore = function(config){
 							if(_flag){
 								if(Array.isArray(fields) && (fields.length > 0)){							//передаю в результат только искомые поля
 									for(const key in data){
-										if(fields.indexOf(key) !== -1){
-											_result[key] = data[key];
+										if((fields.indexOf(key) !== -1) || (key === '_id')){
+											if(typeof(_result[data._id]) !== 'object')
+												_result[data._id] = {};
+											_result[data._id][key] = data[key];
 										}
 									}
 								} else {
-									_result = data;
+									_result[data._id] = data;
 								}							
 							}
 						}
-					}).on('end', function(){
-						rs1(_result);
+					}).on('end', function(data){
+						if(typeof(data) === 'object'){
+							let _flag = true;
+							for(const key in object){														//сверяю ключи объекта с искомым
+								if(object[key] !== data[key]){
+									_flag = false;
+									break;
+								}
+							}
+							if(_flag){
+								if(Array.isArray(fields) && (fields.length > 0)){							//передаю в результат только искомые поля
+									for(const key in data){
+										if((fields.indexOf(key) !== -1) || (key === '_id')){
+											if(typeof(_result[data._id]) !== 'object')
+												_result[data._id] = {};
+											_result[data._id][key] = data[key];
+										}
+									}
+								} else {
+									_result[data._id] = data;
+								}							
+							}
+						}
+						let _arr = [];
+						for(const _id in _result){
+							if(Object.keys(_result[_id]).length > 1){	//если длинна поля = 1, т.е. док удален
+								_arr.push(_result[_id]);
+							}
+						}
+						rs1(_arr);
 					});
 				}).catch(rj1);
 			} else {
@@ -643,22 +680,36 @@ let DataStore = function(config){
 				let _resultKey = {};
 				self.methods.createReadStream(self.pathes.keys['_id']).then(function(rstream){			//создаю поток чтения файла данных СУБД (первичный ключ)
 					rstream.on('data', function(data){													//ручная обработка потока трансформации строка->объект (pipe не подходит, т.к. при ошибке в любом из потоков трубопровод развалится)
-						let _flag = true;
-						for(const key in object){														//сверяю ключи объекта с искомым
-							if(object[key] !== data[key]){
-								_flag = false;
-								break;
+						if(typeof(data) === 'object'){
+							let _flag = true;
+							for(const key in object){														//сверяю ключи объекта с искомым
+								if(object[key] !== data[key]){
+									_flag = false;
+									break;
+								}
+							}
+							if(_flag){ 
+								_resultKey = data;
 							}
 						}
-						if(_flag){ 
-							_resultKey = data;
+					}).on('end', function(data){
+						if(typeof(data) === 'object'){
+							let _flag = true;
+							for(const key in object){														//сверяю ключи объекта с искомым
+								if(object[key] !== data[key]){
+									_flag = false;
+									break;
+								}
+							}
+							if(_flag){ 
+								_resultKey = data;
+							}
 						}
-					}).on('end', function(){	
 						if(JSON.stringify(_resultKey) === '{}'){
-							rs({}); 																	//документ не найден в индексе
+							rs([]); 																	//документ не найден в индексе
 						} else {
-							self.methods.findOne({_id:_resultKey._id}, fields, {start:_resultKey.start, end:_resultKey.end}, false).then(function(doc){				//документ найден в индексе
-								rs(doc);
+							self.methods.findOne({_id:_resultKey._id}, fields, {start:_resultKey.start, end:_resultKey.end}, false).then(function(docs){				//документ найден в индексе
+								rs(docs);
 							}).catch(function(err){
 								rj(new Error('Doc not found.'));										//ошибка, т.к. в файле данных СУБД (лог файл) по байтовому адресу из файла данных СУБД (первичный ключ) не найден документ (нужно восстановить индексы)
 							});
@@ -723,8 +774,8 @@ let DataStore = function(config){
 											setTimeout(rs2, 100);
 										} else { 
 											self.methods.findOne({_id:index._id}, undefined, {start:index.start, end:index.end}, true).then(function(doc){				//ищу документ в бэкапе файла данных СУБД по соответствующим байтовым координатам
-												if((typeof(doc) === 'object') && (typeof(doc._id) === 'string')){
-													self.streams.transform['data.store'].write(doc);			//записываю документ в файл данных СУБД (первичный ключ и лог-файл)
+												if((typeof(doc[0]) === 'object') && (typeof(doc[0]._id) === 'string')){
+													self.streams.transform['data.store'].write(doc[0]);			//записываю документ в файл данных СУБД (первичный ключ и лог-файл)
 													recursiveWrite(++i);
 												} else {														//документ не найден по байтовым координатам, ищу во всем файле (медленно)
 													rj2(new Error('Doc not found.'));

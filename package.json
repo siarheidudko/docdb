@@ -1,6 +1,6 @@
 {
   "name": "docdb",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "crossplatform NoSQL JS database",
   "main": "index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "datastore"
   ],
   "author": "Siarhei Dudko",
-  "license": "apache-2.0-licensed",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/siarheidudko/docdb/issues"
   },
