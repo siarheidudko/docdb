@@ -11,7 +11,8 @@ var PATH = require('path'),
 	FS = require('fs'),
 	OBJECTSTREAM = require('@sergdudko/objectstream'),
 	STREAM = require('stream'),
-	ZLIB = require('zlib');
+	ZLIB = require('zlib'),
+	EE = require('events');;
 	
 let DataStore = function(config){
 	let self = this;
@@ -20,6 +21,7 @@ let DataStore = function(config){
 	self.config = new Object();
 	self.config.dbname = 'docdb';												//директория с файлами данных СУБД
 	self.config.dir = __dirname;												//родительская директория для self.config.dbname
+	self.ee = new EE();															//эмиттер внутренних событий
 	
 	//настройки пользователя
 	if(typeof(config) === 'object'){
@@ -57,7 +59,7 @@ let DataStore = function(config){
 	self.methods = new Object({
 		performance_now: function(){																	//эмуляция performance.now()
 			const nexttime = process.hrtime.bigint();
-			const my = [parseInt(((nexttime - self.starttime) / 1000000000n).toLocaleString()), parseInt(((nexttime - self.starttime) % 1000000000n).toLocaleString())];
+			const my = [parseInt(((nexttime - self.starttime) / 1000000n).toString()), parseInt(((nexttime - self.starttime) % 1000000n).toString())];
 			return parseFloat(my[0]+"."+my[1]);
 		},
 		uuidv4: function() { 																			//генерация uuid версии 4
@@ -190,6 +192,8 @@ let DataStore = function(config){
 						try{
 							if(typeof(object) === 'object'){
 								let _id = object._id;
+								let _id_ = object._id_;
+								delete object._id_;
 								let string = JSON.stringify(object);																//трансформация объект->строка
 								ZLIB.gzip(string, function(err, buffer){															//трансформация, сжатие
 									if(err){
@@ -199,6 +203,9 @@ let DataStore = function(config){
 									selfstream.push(buffer);																							//передаю сжатую строку дальше
 									self.streams.transform['_id.key'].write({_id: _id, start: self.firstByte, end: self.firstByte + _byteLength});		//записываю в первичный ключ байты начала и конца объекта
 									self.firstByte = self.firstByte + _byteLength;																		//меняю первый байт для следующей записи
+									if(typeof(_id_) === 'string'){
+										self.ee.emit(_id_);
+									}
 									return callback();
 								});
 							} else {
@@ -654,16 +661,21 @@ let DataStore = function(config){
 	}
 	
 	//запись объекта в СУБД
-	self.methods.insertOne = function(object){
+	self.methods.insertOne = function(_object){
+		let object = Object.assign(_object);
 		return new Promise(function(rs, rj){
+			if(typeof(object._id_) !== 'undefined'){
+				rj(new Error('Object key _id_ reserved for official purposes!'));
+			}
+			object._id_ = self.methods.uuidv4();
 			if(typeof(object._id) !== 'string'){
 				object._id = self.methods.uuidv4();
 			}
 			if(typeof(object) === 'object'){
+				self.ee.once(object._id_, function(){rs(object._id);})
 				self.streams.transform['data.store'].write(object);
-				setTimeout(rs, 10, object._id);
 			} else {
-				setTimeout(rj, 0, new Error('Function insertOne require object!'));
+				rj(new Error('Function insertOne require object!'));
 			}
 		});
 	}
@@ -775,8 +787,9 @@ let DataStore = function(config){
 										} else { 
 											self.methods.findOne({_id:index._id}, undefined, {start:index.start, end:index.end}, true).then(function(doc){				//ищу документ в бэкапе файла данных СУБД по соответствующим байтовым координатам
 												if((typeof(doc[0]) === 'object') && (typeof(doc[0]._id) === 'string')){
+													doc[0]._id_ = self.methods.uuidv4();
+													self.ee.once(doc[0]._id_, function(){recursiveWrite(++i);})
 													self.streams.transform['data.store'].write(doc[0]);			//записываю документ в файл данных СУБД (первичный ключ и лог-файл)
-													recursiveWrite(++i);
 												} else {														//документ не найден по байтовым координатам, ищу во всем файле (медленно)
 													rj2(new Error('Doc not found.'));
 												}

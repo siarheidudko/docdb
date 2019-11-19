@@ -2,11 +2,7 @@
 # DocDB
 
 LOG-based JavaScript DataBase (based on streaming processing).
-The database is currently under development, please do not use it in production. The API will be significantly changed.
-
-## Note  
-The main problem at the moment is that the recording stream should always be open (to ensure insertion performance), but in fact I can not get the document insertion event in the data file due to the complexity of the streaming architecture. 
-Those. the insert operation occurs without real feedback from the recording stream.
+The API will be significantly changed.
 
 ## Install  
   

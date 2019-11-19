@@ -1,6 +1,6 @@
 {
   "name": "docdb",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "crossplatform NoSQL JS database",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/siarheidudko/docdb#readme",
   "dependencies": {
     "@sergdudko/objectstream": ">=1.5.0",
+    "events": "^3.0.0",
     "fs": "0.0.1-security",
     "path": "^0.12.7",
     "stream": "0.0.2",

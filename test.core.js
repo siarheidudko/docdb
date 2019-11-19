@@ -73,7 +73,7 @@ DataBase.then(function(db){
 				if(i < iter){
 					if(parseInt(i%3) === 0)
 						testdoc._id = db.methods.uuidv4();
-					db.methods.insertOne(testdoc).then(function(_id){
+					db.methods.insertOne(JSON.parse(JSON.stringify(testdoc))).then(function(_id){
 						//
 					}).catch(console.error).finally(function(){
 						recursiveWrite(++i);
